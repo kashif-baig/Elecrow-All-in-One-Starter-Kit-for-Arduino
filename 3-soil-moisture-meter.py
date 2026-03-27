@@ -1,4 +1,15 @@
-# ... example using Robo-Tx framework
+# Application to measure the moisture content of the soil in a plant pot.
+# Connect the soil moisture sensor to the socket marked A6 on the
+# all in one kit using the supplied cable. Push the sensor prongs in to
+# the soil to obtain the moisture reading.
+# 
+# Coding challenge:
+# Below the TODO comment, modify the source code such that when the button
+# is pressed, the message "Water required" is displayed on the second row
+# of the LCD if the moisture content is less than 20%. Futhermore, the beeper
+# must be sounded if the moisture content is less than 10%.
+# Use beeper.RunPattern(100, 100, 3) to sound the beeper.
+#
 # (C) Kashif Baig
 # 
 # Robo-Tx firmware must be deployed to the Arduino. Before doing so, make sure
