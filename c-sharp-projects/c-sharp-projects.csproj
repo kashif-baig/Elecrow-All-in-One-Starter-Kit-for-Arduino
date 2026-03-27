@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>c_sharp_projects</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PlatformTarget>x64</PlatformTarget>
+    <StartupObject>c_sharp_projects.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Robo-Tx.Api">
+      <HintPath>..\RoboTx\win-x64\Robo-Tx.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Ports">
+      <HintPath>..\RoboTx\win-x64\System.IO.Ports.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

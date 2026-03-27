@@ -1,0 +1,71 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0/linux-arm64",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {},
+    ".NETCoreApp,Version=v8.0/linux-arm64": {
+      "Robo-Tx.Api/2.0.0": {
+        "dependencies": {
+          "System.IO.Ports": "10.0.3"
+        },
+        "runtime": {
+          "Robo-Tx.Api.dll": {}
+        }
+      },
+      "runtime.linux-arm64.runtime.native.System.IO.Ports/10.0.3": {
+        "native": {
+          "runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so": {
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.native.System.IO.Ports/10.0.3": {
+        "dependencies": {
+          "runtime.linux-arm64.runtime.native.System.IO.Ports": "10.0.3"
+        }
+      },
+      "System.IO.Ports/10.0.3": {
+        "dependencies": {
+          "runtime.native.System.IO.Ports": "10.0.3"
+        },
+        "runtime": {
+          "runtimes/unix/lib/net8.0/System.IO.Ports.dll": {
+            "assemblyVersion": "10.0.0.3",
+            "fileVersion": "10.0.326.7603"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Robo-Tx.Api/2.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "runtime.linux-arm64.runtime.native.System.IO.Ports/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cEx+Xm0ZNPsuoYTFwXZ6qRstwXQ7vJjbb3jWzo5s5xIeEgpTDdfiUjTgK3Gl618mWgb7+Gn6Vt5pT07RxFC28Q==",
+      "path": "runtime.linux-arm64.runtime.native.system.io.ports/10.0.3",
+      "hashPath": "runtime.linux-arm64.runtime.native.system.io.ports.10.0.3.nupkg.sha512"
+    },
+    "runtime.native.System.IO.Ports/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7U3HW0JzAeg9PWaYBcyWLFMq2RSexgJ8uVCR3E2QVJJ/IZnRT0wYRhyEx3zBSbKYzN3KE6MDiRd6CN4hR7YkqA==",
+      "path": "runtime.native.system.io.ports/10.0.3",
+      "hashPath": "runtime.native.system.io.ports.10.0.3.nupkg.sha512"
+    },
+    "System.IO.Ports/10.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Zs04mZ/dQtaFQ+hpQNDtijBs+6aM9j2fQPp8zNZTfh8DboVNNv7Sw6gH00hT+PVcAhEozlfT+n59Svm6Ug8ROA==",
+      "path": "system.io.ports/10.0.3",
+      "hashPath": "system.io.ports.10.0.3.nupkg.sha512"
+    }
+  }
+}

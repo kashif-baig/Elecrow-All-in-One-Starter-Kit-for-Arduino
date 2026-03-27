@@ -1,0 +1,1906 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Robo-Tx.Api</name>
+    </assembly>
+    <members>
+        <member name="T:RoboTx.Api.AnalogConverter">
+            <summary>
+            Analog input converter
+            </summary>
+            <param name="inputValue">Raw analog input value</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:RoboTx.Api.Analog">
+            <summary>
+            Configures and reports analog inputs via Arduino pins A0 to A7.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Analog.UseConverter(RoboTx.Api.AnalogConverter,RoboTx.Api.AnalogInput[])">
+            <summary>
+            Assigns a function to one or more analog inputs to convert the normal range of analog values from 0 to 1023,
+            to another range of values.
+            </summary>
+            <param name="converter">A <see cref="T:RoboTx.Api.AnalogConverter">function</see> that converts the analog values to another range of values.</param>
+            <param name="input">One or more analog inputs.</param>
+            <exception cref="T:System.ArgumentNullException">converter is null or input is null.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Analog.SetSampleRate(System.Int32)">
+            <summary>
+            Sets the rate at which the analog pins are sampled.
+            </summary>
+            <param name="sampleRateHz">Sample rate in hertz in the range of 1 to 50.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">sampleRateHz has value less than 1 or greater than 50.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Analog.EnableInputsA(System.Int32[])">
+            <summary>
+            Enables analog inputs whose sources are Arduino pins A0, A1, A2, A3, A4, A5, A6 and A7.
+            The default sample rate is 10Hz.
+            A short delay may need to be implemented after a call to this method to allow analog values to start being received.
+            Enable only the input sources that are needed.
+            Digital inputs for the specified Arduino pins are disabled.
+            </summary>
+            <param name="inputPins">Any combination of pins from the set of {0,1,2,3,4,5,6,7}.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+            <exception cref="T:System.ArgumentException">inputPins is null or not supplied.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">inputPins contains out of range value.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Analog.DisableInputsA(System.Int32[])">
+            <summary>
+            Disables analog inputs whose sources are Arduino pins A0, A1, A2, A3, A4, A5, A6 and A7.
+            Digital inputs for the specified Arduino pins are also disabled.
+            </summary>
+            <param name="inputPins">Any combination of pins from the set of {0,1,2,3,4,5,6,7}.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+            <exception cref="T:System.ArgumentException">inputPins is null or not supplied.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">inputPins contains out of range value.</exception>
+        </member>
+        <member name="P:RoboTx.Api.Analog.A0">
+            <summary>
+            Gets the analog reading of pin A0 whose value is between 0 and 1023 inclusive.
+            The pin must be <see cref="M:RoboTx.Api.Analog.EnableInputsA(System.Int32[])">enabled</see> for analog input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Analog.A1">
+            <summary>
+            Gets the analog reading of pin A1 whose value is between 0 and 1023 inclusive.
+            The pin must be <see cref="M:RoboTx.Api.Analog.EnableInputsA(System.Int32[])">enabled</see> for analog input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Analog.A2">
+            <summary>
+            Gets the analog reading of pin A2 whose value is between 0 and 1023 inclusive.
+            The pin must be <see cref="M:RoboTx.Api.Analog.EnableInputsA(System.Int32[])">enabled</see> for analog input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Analog.A3">
+            <summary>
+            Gets the analog reading of pin A3 whose value is between 0 and 1023 inclusive.
+            The pin must be <see cref="M:RoboTx.Api.Analog.EnableInputsA(System.Int32[])">enabled</see> for analog input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Analog.A4">
+            <summary>
+            Gets the analog reading of pin A4 whose value is between 0 and 1023 inclusive.
+            The pin must be <see cref="M:RoboTx.Api.Analog.EnableInputsA(System.Int32[])">enabled</see> for analog input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Analog.A5">
+            <summary>
+            Gets the analog reading of pin A5 whose value is between 0 and 1023 inclusive.
+            The pin must be <see cref="M:RoboTx.Api.Analog.EnableInputsA(System.Int32[])">enabled</see> for analog input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Analog.A6">
+            <summary>
+            Gets the analog reading of pin A6 whose value is between 0 and 1023 inclusive.
+            The pin must be <see cref="M:RoboTx.Api.Analog.EnableInputsA(System.Int32[])">enabled</see> for analog input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Analog.A7">
+            <summary>
+            Gets the analog reading of pin A7 whose value is between 0 and 1023 inclusive.
+            The pin must be <see cref="M:RoboTx.Api.Analog.EnableInputsA(System.Int32[])">enabled</see> for analog input before values become available.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Analog.ValidateInputPins(System.Int32[])">
+            <summary>
+            
+            </summary>
+            <param name="inputPins"></param>
+            <exception cref="T:System.ArgumentException">inputPins is null or not supplied.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">inputPins contains out of range value.</exception>
+        </member>
+        <member name="T:RoboTx.Api.AnalogInput">
+            <summary>
+            Represents the value of a given analog input.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.AnalogInput.Value">
+            <summary>
+            Gets the analog input value.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.AnalogInput.op_Implicit(RoboTx.Api.AnalogInput)~System.Single">
+            <summary>
+            Implicit float cast operator.
+            </summary>
+            <param name="a">AnalogInput instance.</param>
+        </member>
+        <member name="M:RoboTx.Api.AnalogInput.ToString">
+            <summary>
+            Returns the string representation of the value.
+            </summary>
+            <returns>String representation of the value</returns>
+        </member>
+        <member name="M:RoboTx.Api.AnalogMessage.SetSampleRate(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="sampleRateHz"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException">sampleRateHz has value less than 1 or greater than 50.</exception>
+        </member>
+        <member name="T:RoboTx.Api.Config">
+            <summary>
+            Configures the type of motor driver connected to the Arduino.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.ConnectionKeeper.KeepAliveTask">
+            <summary>
+            Task to signal connection alive to Arduino.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.ConnectionKeeper.Cancel">
+            <summary>
+            Cancels the task.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.ConnectionMessage">
+            <summary>
+            Sends connection related information to the Arduino.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.ConnectionMessage.Open">
+            <summary>
+            Signal to the Arduino that the client has opened the connection.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.ConnectionMessage.Close">
+            <summary>
+            Signal to the Arduino that the client is closing the connection.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.ConnectionState">
+            <summary>
+            Informs the connected state of the computer with the Arduino.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.ConnectionState.IsClosing">
+            <summary>
+            Returns true if the method <see cref="M:RoboTx.Api.RobotIO.NotifyClosing"/> was previously called.
+            Returns false otherwise. This property is for monitoring by background threads
+            which should exit gracefully when the property returns true.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.ConnectionState.IsConnected">
+            <summary>
+            Returns true if the serial port is connected to the Arduino, false otherwise.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.ContinuousSensor">
+            <summary>
+            Base class for any sensor that continuously reports values, after being enabled.
+            Once the values are available, the state of the sensor is set to ready.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.ContinuousSensor.IsReady">
+            <summary>
+            Returns true if the sensor values are available for reading.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.ContinuousSensor.IsEnabled">
+            <summary>
+            Returns true if the sensor has been enabled. 
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.ContinuousSensor.SetReady">
+            <summary>
+            Use to indicate that the sensor values have been received.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.ContinuousSensor.Enable">
+            <summary>
+            Use to enable the sensor and start reporting values.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.ContinuousSensor.Disable">
+            <summary>
+            Use to disable the sensor and stop reporting values.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.Digital">
+            <summary>
+            Configures and reports digital inputs via Arduino pins defined in the firmware profile. By default
+            the input pins are A0 to A4, but can be overridden for a specific profile using firmware macro DIGITAL_INPUT_PINS.
+            Digital inputs are identified by their index position. I.e. index 0 by default corresponds to A0, index 1 to A1 etc.
+            Also reports received IR commands sent by an IR remote control.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Digital.IN0">
+            <summary>
+            Gets the digital reading for input 0 whose value is either true or false.
+            The corresponding pin must be <see cref="M:RoboTx.Api.Digital.EnableInputs(System.Int32[])">enabled</see> for digital input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Digital.IN1">
+            <summary>
+            Gets the digital reading for input 1 whose value is either true or false.
+            The corresponding pin must be <see cref="M:RoboTx.Api.Digital.EnableInputs(System.Int32[])">enabled</see> for digital input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Digital.IN2">
+            <summary>
+            Gets the digital reading for input 2 whose value is either true or false.
+            The corresponding pin must be <see cref="M:RoboTx.Api.Digital.EnableInputs(System.Int32[])">enabled</see> for digital input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Digital.IN3">
+            <summary>
+            Gets the digital reading for input 3 whose value is either true or false.
+            The corresponding pin must be <see cref="M:RoboTx.Api.Digital.EnableInputs(System.Int32[])">enabled</see> for digital input before values become available.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Digital.IN4">
+            <summary>
+            Gets the digital reading for input 4 whose value is either true or false.
+            The corresponding pin must be <see cref="M:RoboTx.Api.Digital.EnableInputs(System.Int32[])">enabled</see> for digital input before values become available.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Digital.EnableInputs(System.Int32[])">
+            <summary>
+            Enables digital inputs and events whose sources are Arduino pins defined in the firmware profile.
+            A short delay may need to be implemented after a call to this method to allow digital values to start being received.
+            Enable only the input sources that are needed.
+            Analog inputs for corresponding Arduino pins are disabled. Input pins are identified by their index position
+            in the list of Arduino pins in firmware macro DIGITAL_INPUT_PINS.
+            </summary>
+            <param name="inputPins">The index positions of input pins whose value is between 0 an 4 inclusive.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+            <exception cref="T:System.ArgumentException">inputPins not supplied.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">inputPins contains out of range value.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Digital.DisableInputs(System.Int32[])">
+            <summary>
+            Disables digital inputs and events whose sources are Arduino pins defined in the firmware profile.
+            Analog inputs for corresponding Arduino pins are disabled. The inverted configuration of any disabled
+            inputs are reset. Input pins are identified by their index position
+            in the list of Arduino pins in firmware macro DIGITAL_INPUT_PINS.
+            </summary>
+            <param name="inputPins">The index positions of input pins whose value is between 0 an 4 inclusive.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+            <exception cref="T:System.ArgumentException">inputPins not supplied.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">inputPins contains out of range value.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Digital.InvertInputs(System.Int32[])">
+            <summary>
+            Configures Arduino digital inputs to be detected on Low (inverted) signal.
+            This method should be called before enabling any pins for digital input. Input pins are identified by their index position
+            in the list of Arduino pins in firmware macro DIGITAL_INPUT_PINS.
+            </summary>
+            <param name="inputPins">The index positions of input pins whose value is between 0 an 4 inclusive.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+            <exception cref="T:System.ArgumentException">inputPins not supplied.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">inputPins contains out of range value.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Digital.ResetInputsState(System.Int32[])">
+            <summary>
+            Resets the state of the specified inputs from true to false.
+            Input pins are identified by their index position
+            in the list of Arduino pins in firmware macro DIGITAL_INPUT_PINS.
+            </summary>
+            <param name="inputPins">The index positions of input pins whose value is between 0 an 4 inclusive.</param>
+            <exception cref="T:System.ArgumentException">inputPins not supplied.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">inputPins contains out of range value.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Digital.GetInputEvent">
+            <summary>
+            If an input event (e.g. button press) has been detected, get its value or return -1 otherwise.
+            Use class <see cref="T:RoboTx.Api.Input">Input</see> for symbolic labels for input events.
+            Input events are only detected for Arduino pins that have been <see cref="M:RoboTx.Api.Digital.EnableInputs(System.Int32[])">enabled</see>.
+            </summary>
+            <returns>An integer value representing a detected input event. A value of -1 indicates not events detected.</returns>
+        </member>
+        <member name="M:RoboTx.Api.Digital.ClearInputEvents(System.Int32)">
+            <summary>
+            Clears queued inputs from the internal buffer and resets the current readings to false. Clears for the duration
+            specified by parameter timeoutMs.
+            </summary>
+            <param name="timeoutMs">Time in milliseconds for which the input buffer is cleared.</param>
+        </member>
+        <member name="P:RoboTx.Api.Digital.InputCount">
+            <summary>
+            Returns the number of digital inputs that are set to true.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Digital.GetIRCommand">
+            <summary>
+            Gets the value and pressed state of an IR command button if one has been received by pressing a button on an IR remote control.
+            </summary>
+            <returns>A tuple consisting of the IR command code and its pressed state. A value of -1 for the IR command
+            indicates none received. A value of true for the pressed state indicates button in pressed state.
+            False indicates button released.</returns>
+        </member>
+        <member name="M:RoboTx.Api.Digital.UseIrCommandConverter(RoboTx.Api.IrCommandConverter)">
+            <summary>
+            Registers a function to convert IR command codes to a string value.
+            </summary>
+            <param name="converter">A <see cref="T:RoboTx.Api.IrCommandConverter">function</see> to convert IR command codes to a string value.</param>
+            <exception cref="T:System.ArgumentNullException">converter is null.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Digital.ToString">
+            <summary>
+            Returns the digital inputs as a binary string.
+            </summary>
+            <returns>Digital inputs as a binary string</returns>
+        </member>
+        <member name="M:RoboTx.Api.Digital.ValidateInputPins(System.Int32[])">
+            <summary>
+            
+            </summary>
+            <param name="inputPins"></param>
+            <exception cref="T:System.ArgumentException">inputPins not supplied.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">inputPins contains out of range value.</exception>
+        </member>
+        <member name="T:RoboTx.Api.DigitalInput">
+            <summary>
+            Represents the value of a given digital input.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.DigitalInput.Value">
+            <summary>
+            Gets the digital input value.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.DigitalInput.op_Implicit(RoboTx.Api.DigitalInput)~System.Boolean">
+            <summary>
+            Implicit bool cast operator.
+            </summary>
+            <param name="d">Intance of DigitalInput.</param>
+        </member>
+        <member name="M:RoboTx.Api.DigitalInput.ToString">
+            <summary>
+            Returns the string representation of the value.
+            </summary>
+            <returns>String representation of the value</returns>
+        </member>
+        <member name="T:RoboTx.Api.DisplayLcd">
+            <summary>
+            Writes text to a 16x2 or 16x4 I2C LCD display.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.DisplayLcd.Clear">
+            <summary>
+            Clears the display.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.DisplayLcd.PrintAt(System.Int32,System.Int32,System.String)">
+            <summary>
+            Displays text starting at a specific location of the LCD display. Causes the LCD
+            backlight to switch on. The backlight may switch off after a predefined duration in the firmware.
+            </summary>
+            <param name="col">The column (zero based) from which to display text.</param>
+            <param name="row">The row (zero based) from which to display text.</param>
+            <param name="text">The text to display.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.DisplayLcd.Sleep">
+            <summary>
+            Switches off the LCD backlight.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.DisplayLcd.WakeUp">
+            <summary>
+            Switches on the LCD backlight. The backlight may switch off after a predefined duration in the firmware.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="T:RoboTx.Api.DisplayLed">
+            <summary>
+            Writes a string to a 4 digit 7 segment LED display.
+            The Arduino pins assigned for the display are configured in the firmware settings.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.DisplayLed.Write(System.String)">
+            <summary>
+            Writes a short string to the 7 segment LED display. String will be truncated if it does not fit the display.
+            </summary>
+            <param name="text">The string to display, which will be truncated if it does not fit the display.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.DisplayLed.Write(System.Int32)">
+            <summary>
+            Writes an integer value to the 7 segment display.
+            </summary>
+            <param name="value">The value to display. Will be show as 'E' if its length does not fit the display.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.DisplayLed.Write(System.Double)">
+            <summary>
+            Writes a double value to the 7 segment display.
+            </summary>
+            <param name="value">The value to display. Will be show as 'E' if its length does not fit the display.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.DisplayLed.Write(System.Single)">
+            <summary>
+            Writes a float value to the 7 segment display.
+            </summary>
+            <param name="value">The value to display. Will be show as 'E' if its length does not fit the display.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="T:RoboTx.Api.AccelValues">
+            <summary>
+            Holds the most recent accelerometer values for the X, Y and Z axis.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.AccelValues.UseConverter(RoboTx.Api.MPUConverter)">
+            <summary>
+            Registers a function to convert raw accelerometer sensor values to either calibrated values
+            and or a different scale.
+            </summary>
+            <param name="converter">A <see cref="T:RoboTx.Api.MPUConverter">function</see> to convert raw accelerometer values.</param>
+            <exception cref="T:System.ArgumentNullException">converter is null.</exception>
+        </member>
+        <member name="P:RoboTx.Api.AccelValues.X">
+            <summary>
+            Gets accelerometer X axis value.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.AccelValues.Y">
+            <summary>
+            Gets accelerometer Y axis value.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.AccelValues.Z">
+            <summary>
+            Gets accelerometer Z axis value.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.AccelValues.Deconstruct(System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Unpacks X,Y and Z axis of accelerometer tuple.
+            </summary>
+            <param name="x">X axis</param>
+            <param name="y">Y axis</param>
+            <param name="z">Z axis</param>
+        </member>
+        <member name="M:RoboTx.Api.ColourMessage.#ctor(RoboTx.Api.ColourSensor)">
+            <summary>
+            Constructor used for deserializing.
+            </summary>
+            <param name="colour"></param>
+        </member>
+        <member name="T:RoboTx.Api.ColourSensor">
+            <summary>
+            Reports RGB and HSL values detected using TCS34725 I2C sensor. HSL values may give better results
+            when detecting colours. For each colour to detect, obtain reference values with the sensor close to the object,
+            and with the sensor further away. Compare readings against the range of reference values to identify the colour.
+            This feature is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.ColourSensor.GetRGBC">
+            <summary>
+            Gets the red, green, blue and clear values reported by the colour sensor once it has been enabled.
+            How long it takes for colour values to start being reported, and the subsequent reporting interval
+            will depend in the integration time specified in the <see cref="M:RoboTx.Api.ColourSensor.Enable">Enable</see> method.
+            </summary>
+            <returns>Tuple of (red, green, blue, clear).</returns>
+        </member>
+        <member name="M:RoboTx.Api.ColourSensor.GetHSL">
+            <summary>
+            Gets the colour as H, S and L values reported by the colour sensor once it has been enabled.
+            How long it takes for colour values to start being reported, and the subsequent reporting interval
+            will depend in the integration time specified in the <see cref="M:RoboTx.Api.ColourSensor.Enable">Enable</see> method.
+            </summary>
+            <returns>Tuple of (H, S, L) values.</returns>
+        </member>
+        <member name="M:RoboTx.Api.ColourSensor.Enable">
+            <summary>
+            Enables the colour sensor to report colour values, using integration time 50ms and gain of x4.
+            See <see cref="M:RoboTx.Api.ColourSensor.Enable(System.Int32,System.Int32)">overloaded</see> method for specifying different integration time and gain values.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.ColourSensor.Enable(System.Int32,System.Int32)">
+            <summary>
+            Enables the colour sensor to report colour values using specified integration time and gain.
+            </summary>
+            <param name="integrationTime">Integration time expressed as a value between 0 and 5 inclusive.
+            Use static class <see cref="T:RoboTx.Api.TCS34725">TCS34725</see> that has symbolic labels for integration time values.</param>
+            <param name="gain">Gain represebted as a value between 0 and 3 inclusive. Use static class <see cref="T:RoboTx.Api.TCS34725">TCS34725</see> that
+            has symbolic labels for gain values.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.ColourSensor.Disable">
+            <summary>
+            Stops the colour sensor reporting colour values.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="T:RoboTx.Api.DHTSensor">
+            <summary>
+            Reports temperature and relative hudity values using a DHT20 sensor.
+            This feature is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.DHTSensor.Temperature">
+            <summary>
+            Gets current temperature reading in degrees celsius.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.DHTSensor.Humidity">
+            <summary>
+            Gets current relative humidity reading as a percentage.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.DHTSensor.Enable">
+            <summary>
+            Enables the DHT sensor to report temperature and humidity values.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.DHTSensor.Disable">
+            <summary>
+            Stops the DHT sensor reporting values.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="T:RoboTx.Api.GyroValues">
+            <summary>
+            Holds the most recent gyrometer values for the X, Y and Z axis.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.GyroValues.UseConverter(RoboTx.Api.MPUConverter)">
+            <summary>
+            Registers a function to convert raw gyrometer sensor values to either calibrated values
+            and or a different scale.
+            </summary>
+            <param name="converter">A <see cref="T:RoboTx.Api.MPUConverter">function</see> to convert raw gyrometer values.</param>
+            <exception cref="T:System.ArgumentNullException">converter is null.</exception>
+        </member>
+        <member name="P:RoboTx.Api.GyroValues.X">
+            <summary>
+            Gets gyrometer X axis value.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.GyroValues.Y">
+            <summary>
+            Gets gyrometer Y axis value.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.GyroValues.Z">
+            <summary>
+            Gets gyrometer Z axis value.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.GyroValues.Deconstruct(System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Unpacks X,Y and Z axis of gyrometer tuple.
+            </summary>
+            <param name="x">X axis</param>
+            <param name="y">Y axis</param>
+            <param name="z">Z axis</param>
+        </member>
+        <member name="T:RoboTx.Api.HSLColour">
+            <summary>
+            Represents colour as Hue, Saturation and Lightness values.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.HSLColour.Hue">
+            <summary>
+            Hue component.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.HSLColour.Saturation">
+            <summary>
+            Saturation component.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.HSLColour.Lightness">
+            <summary>
+            Saturation component.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.HSLColour.Deconstruct(System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Unpacks HSL Colour tuple.
+            </summary>
+            <param name="hue">Hue component.</param>
+            <param name="saturation">Saturation component.</param>
+            <param name="lightness">Lightness component.</param>
+        </member>
+        <member name="M:RoboTx.Api.I2CRequestMessage.#ctor(System.IO.StreamWriter)">
+            <summary>
+            Constructor used for serializing.
+            </summary>
+            <param name="sw"></param>
+        </member>
+        <member name="T:RoboTx.Api.LightMeter">
+            <summary>
+            Reports LUX values from a BH1750 sensor.
+            This feature is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.LightMeter.LuxValue">
+            <summary>
+            Gets the LUX value reported by the light meter sensor.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.LightMeter.op_Implicit(RoboTx.Api.LightMeter)~System.Single">
+            <summary>
+            Implicit float cast operator.
+            </summary>
+            <param name="a">LightMeter instance.</param>
+        </member>
+        <member name="M:RoboTx.Api.LightMeter.Enable">
+            <summary>
+            Enables the light meter sensor to report LUX values.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.LightMeter.Disable">
+            <summary>
+            Stops the light meter sensor reporting LUX values.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="T:RoboTx.Api.MPUConverter">
+            <summary>
+            MPU sensor converter. Use to convert raw MPU sensor readings to either calibrated values
+            and or a different scale.
+            </summary>
+            <param name="axis">Either 'x', 'y' or 'z'.</param>
+            <param name="rawValue">Raw sensor value in integer form.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="T:RoboTx.Api.MPUSensor">
+            <summary>
+            Report accelerometer and gyro readings from an MPU6050 sensor.
+            This feature is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.MPUSensor.Accel">
+            <summary>
+            Reports accelerometer readings from an MPU6050 sensor.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.MPUSensor.Gyro">
+            <summary>
+            Reports gyrometer readings from an MPU6050 sensor.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.MPUSensor.Enable">
+            <summary>
+            Enables the MPU6050 sensor to begin reporting readings.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.MPUSensor.Disable">
+            <summary>
+            Stops the MPU6050 sensor from reporting readings. 
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.PulseCounter">
+            <summary>
+            Configures and calculates period of input pulses on configurable Arduino pin, as defined
+            in the RoboTx firmware settings (default is A2).
+            This feature is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.PulseCounter.Enable(System.Int32,System.Int32)">
+            <summary>
+            Initializes and enables the pulse counter. Used for measuring pulses applied to a designated input pin defined. Max pulse frequency 500hz.
+            Inputs on A2 will not be registered as events whilst pulse counting is enabled.
+            </summary>
+            <param name="timeoutMs">The number of milliseconds to wait for a pulse before resetting pulse period to 0.
+            Must be between 250 and 10000 inclusive.</param>
+            <param name="triggerEdge">Trigger counter on either rising (1) or falling (0) edge of pulse signal.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">timeoutMs is out of range.</exception>
+        </member>
+        <member name="M:RoboTx.Api.PulseCounter.Disable">
+            <summary>
+            Disables the pulse counter.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="P:RoboTx.Api.PulseCounter.Period">
+            <summary>
+            Gets the pulse period (in milliseconds) reported by the pulse counter.
+            Pulse counter must be <see cref="M:RoboTx.Api.PulseCounter.Enable(System.Int32,System.Int32)">enabled</see> before values become available.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.PulseCounterMessage.#ctor(System.IO.StreamWriter)">
+            <summary>
+            Constructor used for serializing.
+            </summary>
+            <param name="sw"></param>
+        </member>
+        <member name="M:RoboTx.Api.PulseCounterMessage.#ctor(RoboTx.Api.PulseCounter)">
+            <summary>
+            Constructor used for deserializing.
+            </summary>
+            <param name="pulseCounter"></param>
+        </member>
+        <member name="M:RoboTx.Api.PulseCounterMessage.Enable(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="timeoutMs"></param>
+            <param name="triggerEdge"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException">timeoutMs is out of range.</exception>
+        </member>
+        <member name="T:RoboTx.Api.RGBColour">
+            <summary>
+            Represents colour as Red, Green, Blue and Clear values.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RGBColour.Red">
+            <summary>
+            Red component.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RGBColour.Green">
+            <summary>
+            Green component.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RGBColour.Blue">
+            <summary>
+            Blue component.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RGBColour.Clear">
+            <summary>
+            Clear component.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.RGBColour.Deconstruct(System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Unpacks RGBC tuple.
+            </summary>
+            <param name="red">Red component.</param>
+            <param name="green">Green component.</param>
+            <param name="blue">Blue component.</param>
+            <param name="clear">Clear component.</param>
+        </member>
+        <member name="T:RoboTx.Api.RobotIO">
+            <summary>
+            The main class through which input and output operations are performed with devices and components connected to the Arduino.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.ColourSensor">
+            <summary>
+            Reports values read using TCS34725 sensor.
+            This feature is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.LightMeter">
+            <summary>
+            Reports values using the BH1750 light meter sensor.
+            This feature is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.DHTSensor">
+            <summary>
+            Reports temperature and humidity values using a DHT20 sensor.
+            This feature is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.MPUSensor">
+            <summary>
+            Reports accelerometer and gyrometer readings from an MPU6050 sensor.
+            This feature is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.PulseCounter">
+            <summary>
+            Calculates period of input pulses on a designated Arduino pin.
+            This feature is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Servo5">
+            <summary>
+            Sets the range and position of servo motor 5.
+            Servo5 is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Servo6">
+            <summary>
+            Sets the range and position of servo motor 6.
+            Servo6 is only available in the Education Edition of the Robo-Tx API.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.InstantiateOptional">
+            <summary>
+            Instantiate classes available in Education Edition of API.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.EnvironmentCheck">
+            <summary>
+            Perform licence check.
+            </summary>
+        </member>
+        <member name="E:RoboTx.Api.RobotIO.ListenerErrorOccurred">
+            <summary>
+            Event is triggered when a Listener IO exception occurs. The event handler will likely be
+            executed on a background thread.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.OnListenerErrorOccurred(Messaging.MessageListenerErrorEventArgs)">
+            <summary>
+            Raises the ListenerErrorOccurred event when an IO error has been encountered by the MessageListener..
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.RobotId">
+            <summary>
+            Gets the user defined ROBOT_ID string set in the firmware file Settings.h. Use the value
+            of this property to distinguish between different robots connected at
+            the same time.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.#ctor(System.String)">
+            <summary>
+            Constructs an instance using a serial port name, 115200 baud rate and data terminal ready as true.
+            </summary>
+            <param name="port">Serial port name.</param>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.#ctor(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Constructs an instance using a serial port name, baud rate and data terminal ready settings.
+            </summary>
+            <param name="port">Serial port name.</param>
+            <param name="baud">Baud rate.</param>
+            <param name="dtrEnable">Data terminal ready. Set to false when connecting directly to Arduino R3 Uno and Mega 2560,
+            set to true for Leonardo and Arduino R4 Uno. Set to false when connecting via bluetooth.</param>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.Connect">
+            <summary>
+            Initiates serial connection with Arduino using port and baud rates specified in constructor.
+            </summary>
+            <exception cref="T:System.IO.FileNotFoundException">Serial port was not found.</exception>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.WaitUntilSensorsReady(RoboTx.Api.ContinuousSensor[])">
+            <summary>
+            Waits up to 2000ms for specified sensors to become ready. The sensors must have been enabled beforehand.
+            Analog sensors are enabled by default.
+            </summary>
+            <param name="sensors">One or more <see cref="T:RoboTx.Api.ContinuousSensor">sensors</see> that can report whether they are ready or not.</param>
+            <returns>true if the sensors are ready within the timeout period, false otherwise.</returns>
+            <exception cref="T:System.ArgumentNullException">sensors is null or empty.</exception>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.WaitUntilSensorsReady(System.Int32,RoboTx.Api.ContinuousSensor[])">
+            <summary>
+            Waits up to the timeout period for specified sensors to become ready. The sensors must have been enabled beforehand.
+            Analog sensors are enabled by default.
+            </summary>
+            <param name="timeoutMs">A timeout specified in milliseconds.</param>
+            <param name="sensors">One or more <see cref="T:RoboTx.Api.ContinuousSensor">sensors</see> that can report whether they are ready or not.</param>
+            <returns>true if the sensors are ready within the timeout period, false otherwise.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">timeoutMs must be greater than 0 and less than or equal to 5000.</exception>
+            <exception cref="T:System.ArgumentNullException">sensors is null or empty.</exception>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.IsConnected">
+            <summary>
+            Returns true if the serial port is connected to the Arduino, false otherwise.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.IsClosing">
+            <summary>
+            Returns true if the method <see cref="M:RoboTx.Api.RobotIO.NotifyClosing"/> was previously called.
+            Returns false otherwise. This property is for monitoring by background threads
+            which should exit gracefully when the property returns true.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.ConnectionState">
+            <summary>
+            Informs the connected state of the computer with the Arduino.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.NotifyClosing">
+            <summary>
+            The method should be called in the main application to signal to background threads monitoring property <see cref="P:RoboTx.Api.ConnectionState.IsClosing">IsClosing</see> that they should terminate gracefully.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.LedDisplay">
+            <summary>
+            Writes a string to the 7 segment LED display.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Display">
+            <summary>
+            Sends text output to the LCD display.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Trigger">
+            <summary>
+            A digital trigger for generating repeating pulse cycle patterns.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Analog">
+            <summary>
+            Allows for configuring of analog input, and exposing analog readings.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.MotorConfig">
+            <summary>
+            Configuration options for DC motors.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Motor1">
+            <summary>
+            Controls speed and direction of motor 1.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Motor2">
+            <summary>
+            Controls speed and direction of motor 2.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.ServoConfig">
+            <summary>
+            Configuration options for servo motors.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Servo1">
+            <summary>
+            Sets the range and position of servo motor 1.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Servo2">
+            <summary>
+            Sets the range and position of servo motor 2.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Servo3">
+            <summary>
+            Sets the range and position of servo motor 3.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Servo4">
+            <summary>
+            Sets the range and position of servo motor 4.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Sonar">
+            <summary>
+            Uses sonar to calculate distance by sending a ping and measuring the time lapsed before receiving the echo.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Switch1">
+            <summary>
+            Sets a digital output to on or off.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Switch2">
+            <summary>
+            Sets a digital output to on or off.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Switch3">
+            <summary>
+            Sets a digital output to on or off.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Switch4">
+            <summary>
+            Sets a digital output to on or off.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Config">
+            <summary>
+            Configures some devices connected to the robot.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.RobotIO.Digital">
+            <summary>
+            Exposes digital input readings.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.CheckSerialState">
+            <summary>
+            
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.Close">
+            <summary>
+            Closes connection with Arduino. DC motors and servo motors will be disabled, the digital trigger
+            and digital switches will turn off, and the LED display will clear. 
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.Dispose(System.Boolean)">
+            <summary>
+            Closes connection with the Arduino and releases resources.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:RoboTx.Api.RobotIO.Dispose">
+            <summary>
+            Closes connection with the Arduino and releases resources.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.TCS34725">
+            <summary>
+            Symbolic labels for colour sensor configuration settings.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.TCS34725.INTEGRATION_TIME_2_4MS">
+            <summary>
+            Represents integration time of 2.4 ms.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.TCS34725.INTEGRATION_TIME_24MS">
+            <summary>
+            Represents integration time of 24 ms.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.TCS34725.INTEGRATION_TIME_50MS">
+            <summary>
+            Represents integration time of 50 ms.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.TCS34725.INTEGRATION_TIME_101MS">
+            <summary>
+            Represents integration time of 101 ms.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.TCS34725.INTEGRATION_TIME_154MS">
+            <summary>
+            Represents integration time of 154 ms.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.TCS34725.INTEGRATION_TIME_700MS">
+            <summary>
+            Represents integration time of 700 ms.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.TCS34725.GAIN_1X">
+            <summary>
+            Represents sensor gain of 1x.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.TCS34725.GAIN_4X">
+            <summary>
+            Represents sensor gain of 4x.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.TCS34725.GAIN_16X">
+            <summary>
+            Represents sensor gain of 16x.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.TCS34725.GAIN_60X">
+            <summary>
+            Represents sensor gain of 60x.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.Input">
+            <summary>
+            Input constants representing the pressing, holding and releasing of buttons, or triggering
+            of contacts on Arduino pins defined in the firmware.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_1_PRESSED">
+            <summary>
+            Button 1 was pressed.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_1_RELEASED">
+            <summary>
+            Button 1 was released after a short press. 
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_1_SUSTAINED">
+            <summary>
+            Button 1 is held down.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_1_SUSTAIN_RELEASED">
+            <summary>
+            Button 1 was released after a long press.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_2_PRESSED">
+            <summary>
+            Button 2 was pressed.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_2_RELEASED">
+            <summary>
+            Button 2 was released after a short press. 
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_2_SUSTAINED">
+            <summary>
+            Button 2 is held down.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_2_SUSTAIN_RELEASED">
+            <summary>
+            Button 2 was released after a long press.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_3_PRESSED">
+            <summary>
+            Button 3 was pressed.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_3_RELEASED">
+            <summary>
+            Button 3 was released after a short press. 
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_3_SUSTAINED">
+            <summary>
+            Button 3 is held down.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_3_SUSTAIN_RELEASED">
+            <summary>
+            Button 3 was released after a long press.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.BUTTON_4_PRESSED">
+            <summary>
+            Button 4 was pressed.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.None">
+            <summary>
+            No digital input signal was detected.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.IN0_TRIGGERED">
+            <summary>
+            Digital signal was detected on IN0.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.IN1_TRIGGERED">
+            <summary>
+            Digital signal was detected on IN1.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.IN2_TRIGGERED">
+            <summary>
+            Digital signal was detected on IN2.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.IN3_TRIGGERED">
+            <summary>
+            Digital signal was detected on IN3.
+            </summary>
+        </member>
+        <member name="F:RoboTx.Api.Input.IN4_TRIGGERED">
+            <summary>
+            Digital signal was detected on IN4.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.IrCommandConverter">
+            <summary>
+            Infra red remote sensor command converter. Use for converting command codes to a string value.
+            </summary>
+            <param name="irCode">IR remote command code received.</param>
+            <returns></returns>
+        </member>
+        <member name="T:RoboTx.Api.IrCommand">
+            <summary>
+            Represents IR Command received by the IR remote sensor.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.IrCommand.Code">
+            <summary>
+            Gets the IR command code.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.IrCommand.ButtonPressed">
+            <summary>
+            Gets the pressed state of the command button. True indicates pressed.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.IrCommand.ButtonReleased">
+            <summary>
+            Gets the released state of the command button. True indicates released.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.IrCommand.Received">
+            <summary>
+            Returns true if an IR command has been received.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.IrCommand.Name">
+            <summary>
+            Uses the registered <see cref="T:RoboTx.Api.IrCommandConverter">IrCommandConverter</see> function to convert a received IR command code to a string value.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.IrCommand.Deconstruct(System.Int32@,System.String@,System.Boolean@,System.Boolean@)">
+            <summary>
+            Unpacks the IR Command tuple.
+            </summary>
+            <param name="code">IR command code</param>
+            <param name="name">String representation of command code.</param>
+            <param name="buttonPressed">Command button pressed state.</param>
+            <param name="buttonReleased">Command button released state.</param>
+        </member>
+        <member name="M:RoboTx.Api.IrCommand.Deconstruct(System.Int32@,System.Boolean@,System.Boolean@)">
+            <summary>
+            Unpacks the IR Command tuple.
+            </summary>
+            <param name="code">IR command code</param>
+            <param name="buttonPressed">Command button pressed state.</param>
+            <param name="buttonReleased">Command button released state.</param>
+        </member>
+        <member name="T:RoboTx.Api.Motor">
+            <summary>
+            Controls speed, acceleration, duration and direction of a motor.
+            The Arduino pins assigned for motors are configured in the firmware settings.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Motor.DurationLapsed">
+            <summary>
+            Returns true if a previously set duration for driving the motor has lapsed.
+            Returns false otherwise. See <see cref="M:RoboTx.Api.Motor.DriveForDuration(System.Single,System.Single)"/>.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Motor.SetSpeedLimits(System.Int32,System.Int32)">
+            <summary>
+            Sets the reverse and forward speed limits of a motor.
+            </summary>
+            <param name="maxReverseSpeed">A value between -100 and 0 inclusive.</param>
+            <param name="maxForwardSpeed">A value between 1 and 100 inclusinve.</param>
+            <exception cref="T:System.ArgumentNullException">motor is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">maxReverseSpeed or maxForwardSpeed is out of range.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.SetSpeedMultiplier(System.Single)">
+            <summary>
+            Sets speed multiplier for motor. A negative value will reverse the motor direction.
+            Allows for fine tuning of the motor speed to match the speed of the other motor.
+            </summary>
+            <param name="speedMultiplier">A value between -2 and +2 inclusive</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">speedMultiplier is out of range.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.DriveNoAccel(System.Int32)">
+            <summary>
+            Drives the motor at a percentage of its maximum speed (either forward or reverse) and overrides any previously set acceleration.
+            </summary>
+            <param name="speedPercent">Percentage of motor's maximum speed, e.g. -50 or +90.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.DriveNoAccel(System.Single)">
+            <summary>
+            Drives the motor at a percentage of its maximum speed (either forward or reverse) and overrides any previously set acceleration.
+            </summary>
+            <param name="speedPercent">Percentage of motor's maximum speed, e.g. -50 or +90.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.Drive(System.Int32,System.Boolean)">
+            <summary>
+            Drives the motor at a percentage of its maximum speed (either forward or reverse) and overrides any previously set acceleration.
+            </summary>
+            <param name="speedPercent">Percentage of motor's maximum speed, e.g. -50 or +90.</param>
+            <param name="overrideAcceleration">Setting to true overrides a previously set acceleration value.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.DriveForDuration(System.Int32,System.Single)">
+            <summary>
+            Drives the motor at a percentage of its maximum speed (either forward or reverse) for a specified duration.
+            </summary>
+            <param name="speedPercent">Percentage of motor's maximum speed, e.g. -50 or +90.</param>
+            <param name="duration">Duration (in seconds) for which motor is driven.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Duration is out of range.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.DriveForDuration(System.Single,System.Single)">
+            <summary>
+            Drives the motor at a percentage of its maximum speed (either forward or reverse) for a specified duration.
+            </summary>
+            <param name="speedPercent">Percentage of motor's maximum speed, e.g. -50 or +90.</param>
+            <param name="duration">Duration (in seconds) for which motor is driven.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Duration is out of range.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.Drive(System.Int32)">
+            <summary>
+            Drives the motor at a percentage of its maximum speed (either forward or reverse).
+            </summary>
+            <param name="speedPercent">Percentage of motor's maximum speed, e.g. -50 or +90.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.Drive(System.Single)">
+            <summary>
+            Drives the motor at a percentage of its maximum speed (either forward or reverse).
+            </summary>
+            <param name="speedPercent">Percentage of motor's maximum speed, e.g. -50 or +90.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.SetAcceleration(System.Single)">
+            <summary>
+            Configures motor acceleration by specifying the time (in seconds) it takes to reach maximum speed from stationary position.
+            </summary>
+            <param name="timeToMaxSpeed">Time (in seconds) to reach maximum speed from stationary. Minimum value is 0, maximum is 10.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">timeToMaxSpeed is out of range.</exception>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.StopAccelerating">
+            <summary>
+            If motor is accelerating, holds the motor at the current speed.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.ValidateDuration(System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="duration"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException">duration is out of range.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Motor.ToInt(System.Single)">
+            <summary>
+            Rounds float to the nearest whole integer.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:RoboTx.Api.MotorConfig">
+            <summary>
+            Configuration options for DC motors.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.MotorConfig.SetSpeedMultiplier(System.Single,RoboTx.Api.Motor)">
+            <summary>
+            Sets speed multiplier for motor. A negative value will reverse the motor direction.
+            Allows for fine tuning of the motor speed to match the speed of the other motor.
+            </summary>
+            <param name="speedMultiplier">A value between -2 and +2 inclusive</param>
+            <param name="motor">The motor that will be affected.</param>
+            <exception cref="T:System.ArgumentNullException">motor is null.</exception>
+            /// <exception cref="T:System.ArgumentOutOfRangeException">speedMultiplier is out of range.</exception>
+        </member>
+        <member name="M:RoboTx.Api.MotorConfig.SetSpeedLimits(System.Int32,System.Int32,RoboTx.Api.Motor)">
+            <summary>
+            Sets the reverse and forward speed limits of a motor.
+            </summary>
+            <param name="maxReverseSpeed">A value between -100 and 0 inclusive.</param>
+            <param name="maxForwardSpeed">A value between 1 and 100 inclusinve.</param>
+            <param name="motor">The motor that will be affected.</param>
+            <exception cref="T:System.ArgumentNullException">motor is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">maxReverseSpeed or maxForwardSpeed is out of range.</exception>
+        </member>
+        <member name="T:RoboTx.Api.MotorDriveCommand">
+            <summary>
+            Used for keeping track of motor commands for ensuring repetetive commands are not seriaiized at high frequency.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.NamespaceDoc">
+            <summary>
+            The <see cref="N:RoboTx.Api"/> namespace contains classes for the Robo-Tx API that
+            interacts with the Robo-Tx firmware deployed to an Arduino.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.Servo">
+            <summary>
+            Configures the range and the position setting of a servo motor.
+            The Arduino pins assigned for servo motors are configured in the firmware settings.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Servo.SetSpeedLimit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="maxSpeed"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:RoboTx.Api.Servo.SetAngleLimits(System.Int32,System.Int32)">
+            <summary>
+            Sets the servo angle lower and upper limits to prevent the servo travelling beyond physical boundaries.
+            </summary>
+            <param name="angleLowerLimit">An angle &gt;= 0 and &lt; angleUpperLimit </param>
+            <param name="angleUpperLimit">An angle &gt; angleLowerLimit and &lt;= servo max angle</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Either angleLowerLimit or angleUpperLimit is out of range.</exception>
+        </member>
+        <member name="P:RoboTx.Api.Servo.Range">
+            <summary>
+            Gets the servo range settings.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Servo.SetServoType(System.Int32)">
+            <summary>
+            Sets the range of the servo motor in terms of its maximum angle to ensure correct positioning.
+            </summary>
+            <param name="angleRange">Maximum angle of the servo. Must be between 180 and 360 degrees inclusive.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">angleRange is out of range.</exception>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Servo.SetServoType(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the range of specified servo motor in terms of minimum and maximum pulse width to ensure correct positioning.
+            </summary>
+            <param name="maxAngle">Maximum angle of the servo. Must be between 180 and 360 degrees inclusive.</param>
+            <param name="minPulseWidth">Minimum pulse width expressed as milliseconds. Must be between 500 and 1250 inclusive.</param>
+            <param name="maxPulseWidth">Maximum pulse width expressed as milliseconds Must be between minPulseWidth and 2500 inclusive.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">Either angleRange, minPulseWidth or maxPulseWidth are out of range.</exception>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Servo.SetSpeed(System.Int32)">
+            <summary>
+            Sets the speed with which the servo moves to a specified position. The actual speed and range of speed
+            will depend on the type of servo used. By default the servo is set to move at maximum speed.
+            </summary>
+            <param name="speed">A value starting from 1 (slowest) to 10 (fastest) that correlates with servo speed.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException">speedStep is out of range.</exception>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="P:RoboTx.Api.Servo.Position">
+            <summary>
+            Gets the current position angle of the servo that was set using <see cref="M:RoboTx.Api.Servo.SetPosition(System.Single)"/>.
+            The value returned is not guaranteed to reflect the actual physical position of the servo, since it can take time for the
+            servo to move to a given position, or the servo may have been manually re-positioned
+            whilst in a stopped state.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Servo.SetPosition(System.Single)">
+            <summary>
+            Sets the position angle of a specified servo motor.
+            </summary>
+            <param name="angle">The position angle to rotate to. Must be between 0 and maximum angle range set by method SetRange().
+            The angle value is constrained to the limits specified using <see cref="M:RoboTx.Api.ServoConfig.SetAngleLimits(System.Int32,System.Int32,RoboTx.Api.Servo)"/> </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">angle is out of range.</exception>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Servo.Stop">
+            <summary>
+            Stops the specified servo so it no longer maintains its position.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="T:RoboTx.Api.ServoConfig">
+            <summary>
+            Configuration options for servo motors.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.ServoConfig.SetAngleLimits(System.Int32,System.Int32,RoboTx.Api.Servo)">
+            <summary>
+            Sets the servo angle lower and upper limits to prevent the servo travelling beyond physical boundaries.
+            </summary>
+            <param name="angleLowerLimit">An angle &gt;= 0 and &lt; angleUpperLimit </param>
+            <param name="angleUpperLimit">An angle &gt; angleLowerLimit and &lt;= servo max angle</param>
+            <param name="servo">The servo that will be affected.</param>
+            <exception cref="T:System.ArgumentNullException">servo is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Either angleLowerLimit or angleUpperLimit is out of range.</exception>
+        </member>
+        <member name="M:RoboTx.Api.ServoConfig.SetSpeedLimit(System.Int32,RoboTx.Api.Servo[])">
+            <summary>
+            Sets the maximum speed of the servos.
+            </summary>
+            <param name="maxSpeed">Maximum speed of the servo whose value is between 1 and 10 inclusive.</param>
+            <param name="servo">The servo that will be affected.</param>
+            <exception cref="T:System.ArgumentNullException">servo is null or has null elements.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">maxSpeed is out of range.</exception>
+        </member>
+        <member name="M:RoboTx.Api.ServoConfig.SetType(System.Int32,System.Int32,System.Int32,RoboTx.Api.Servo[])">
+            <summary>
+            Sets the type of specified servo motor in terms of minimum and maximum pulse width to ensure correct positioning.
+            </summary>
+            <param name="maxAngle">Maximum angle of the servo. Must be between 180 and 360 degrees inclusive.</param>
+            <param name="minPulseWidth">Minimum pulse width expressed as milliseconds. Must be between 500 and 1250 inclusive.</param>
+            <param name="maxPulseWidth">Maximum pulse width expressed as milliseconds Must be between minPulseWidth and 2500 inclusive.</param>
+            <param name="servo">The servo that will be affected.</param>
+            <exception cref="T:System.ArgumentNullException">servo is null or has null elements.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Either angleRange, minPulseWidth or maxPulseWidth are out of range.</exception>
+        </member>
+        <member name="T:RoboTx.Api.ServoRange">
+            <summary>
+            Maintains the range settings for a servo.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.ServoRange.MaxAngle">
+            <summary>
+            Gets the maximum physical angle of the servo.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.ServoRange.LowerLimit">
+            <summary>
+            Gets the angle lower limit set for the servo.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.ServoRange.UpperLimit">
+            <summary>
+            Gets the angle upper limit set for the servo.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.Sonar">
+            <summary>
+            Uses sonar to calculate distance by sending a ping and measuring the time lapsed before receiving the echo.
+            The maximum distance that can be measured is 165 Centimetres.
+            Sonar works best to detect objects with hard surfaces that reflect sound well. The sonar sensor
+            may detect a closer object off to the side instead of a farther object straight ahead.
+            The Arduino pins assigned for the sonar module are configured in the firmware settings.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Sonar.Ping">
+            <summary>
+            Sends one ping using a sonar module.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Sonar.Clear">
+            <summary>
+            Clears the current distance value.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Sonar.DistanceAcquired">
+            <summary>
+            Returns true if a distance value has been calculated from the sonar echo. Returns false if no echo was received in time.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Sonar.GetDistance">
+            <summary>
+            Gets the distance calculated from the sonar echo after calling Ping().
+            A value of -1 indicates no echo was received in time. Note that a call to this method
+            will reset the distance to -1. Therefore, the caller should store the
+            value returned in a variable.
+            </summary>
+            <returns>Distance calculated as a result of an echo received after a sonar ping.</returns>
+        </member>
+        <member name="T:RoboTx.Api.Switch">
+            <summary>
+            Sets a digital output to on or off. The Arduino digital pin and values that represent on and off
+            are configured in the firmware settings.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Switch.On">
+            <summary>
+            Switches on the digital output.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Switch.OnForDuration(System.Single)">
+            <summary>
+            Switches on the digital output for the specified duration in seconds.
+            </summary>
+            <param name="duration">Duration in seconds. Value must be between 0 and 600 inclusive.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="P:RoboTx.Api.Switch.DurationLapsed">
+            <summary>
+            Returns true if a previously set duration in seconds for the output has lapsed.
+            Returns false otherwise. See <see cref="M:RoboTx.Api.Switch.OnForDuration(System.Single)"/>.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Switch.DurationIsEnabled">
+            <summary>
+            Returns true if the switch duration is enabled. The enabled state is
+            set to true when OnForDuration() is called with a non-zero duration value.
+            It is set to false when On() is called.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Switch.IsOn">
+            <summary>
+            Returns true if the switch is set to On, false otherwise.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Switch.Off">
+            <summary>
+            Switches off the digital output.
+            </summary>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.SwitchManager.ManageSwitches">
+            <summary>
+            Manages the On duration of switches.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.SwitchManager.Cancel">
+            <summary>
+            Cancels the task.
+            </summary>
+        </member>
+        <member name="T:RoboTx.Api.Trigger">
+            <summary>
+            A digital trigger for repeating pulse cycle patterns.
+            Use for an audio or visual alert (e.g. active beeper) using repeating cycle patterns.
+            The Arduino digital pin and values that represent on and off are configured in the firmware settings.
+            </summary>
+        </member>
+        <member name="P:RoboTx.Api.Trigger.IsActive">
+            <summary>
+            Returns true if the trigger is on or running a pattern cycle. Returns false otherwise.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Trigger.Off">
+            <summary>
+            Stops the trigger if it is on or running a pattern cycle.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Trigger.On">
+            <summary>
+            Switches on the trigger for an indefinite period.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Trigger.Pulse">
+            <summary>
+            Trigger a short pulse.
+            </summary>
+        </member>
+        <member name="M:RoboTx.Api.Trigger.Pulse(System.Int32)">
+            <summary>
+            Trigger a pulse for a specified period in milliseconds.
+            </summary>
+            <param name="onPeriod">On for specified milliseconds.</param>
+        </member>
+        <member name="M:RoboTx.Api.Trigger.Repeat(System.Int32,System.Int32)">
+            <summary>
+            Pulses the trigger indefinitely with a continous sequence of on/off periods.
+            </summary>
+            <param name="onPeriod">On for specified milliseconds.</param>
+            <param name="offPeriod">Off for specified milliseconds.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Trigger.RunPattern(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Runs a repeating pattern of digital pulses.
+            </summary>
+            <param name="onPeriod">On for specified milliseconds.</param>
+            <param name="offPeriod">Off for specified milliseconds.</param>
+            <param name="cycles">Repeat the pulse/off cycle for specified number of times.</param>
+            <param name="loopCycles">The number of times to loop (repeat) the pulse/off/cycle. 0=indefinite.</param>
+            <param name="loopDelayPeriod">Interval between loops in millisecionds.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Trigger.SetOffPeriod(System.Int32)">
+            <summary>
+            Sets the off period between pulses whilst the trigger is cyclng through a repeat pattern.
+            </summary>
+            <param name="offPeriod">Off period in milliseconds.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="M:RoboTx.Api.Trigger.SetOffPeriod(System.Single)">
+            <summary>
+            Sets the off period between pulses whilst the trigger is cyclng through a repeat pattern.
+            </summary>
+            <param name="offPeriod">Off period in milliseconds.</param>
+            <exception cref="T:System.IO.IOException">Serial port is in error state or not open.</exception>
+        </member>
+        <member name="P:Licensing.LicenceInfo.LicenceDate">
+            <summary>
+            Date of Licence issue.
+            </summary>
+        </member>
+        <member name="P:Licensing.LicenceInfo.ProdCode">
+            <summary>
+            Product code.
+            </summary>
+        </member>
+        <member name="P:Licensing.LicenceInfo.MajorVersion">
+            <summary>
+            Product major version.
+            </summary>
+        </member>
+        <member name="P:Licensing.LicenceInfo.MinorVersion">
+            <summary>
+            Product minor version.
+            </summary>
+        </member>
+        <member name="P:Licensing.LicenceInfo.ExpiryDate">
+            <summary>
+            Date of licence expiry.
+            </summary>
+        </member>
+        <member name="P:Licensing.LicenceInfo.CustomerHash">
+            <summary>
+            Hashcode of customer.
+            </summary>
+        </member>
+        <member name="P:Licensing.LicenceInfo.SaleId">
+            <summary>
+            Sale Id.
+            </summary>
+        </member>
+        <member name="P:Licensing.LicenceInfo.LicenceIssuer">
+            <summary>
+            Licence issuer.
+            </summary>
+        </member>
+        <member name="M:Licensing.LicenceInfo.GenerateLicenceString">
+            <summary>
+            Generates plain licence string from instance properties.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Licensing.LicenceInfo.GetLicenceInfoFromString(System.String)">
+            <summary>
+            Consructs a LicenceInfo instance from a plain licence string.
+            </summary>
+            <param name="licenceString"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Messaging.IDeserializableMessage">
+            <summary>
+            Defines a deserializable message,
+            for the purpose of communication over Serial.
+            </summary>
+        </member>
+        <member name="M:Messaging.IDeserializableMessage.GetMessageType">
+            <summary>
+            Returns the message type string. Must be unique for each implementation.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Messaging.IDeserializableMessage.OnBeginDeserialize">
+            <summary>
+            Called when deserialization has begun.
+            </summary>
+        </member>
+        <member name="M:Messaging.IDeserializableMessage.OnDeserializeProperty(System.Int32,System.String)">
+            <summary>
+            Called when a message property has been deserialized.
+            </summary>
+            <param name="propertyIndex"></param>
+            <param name="propertyValue"></param>
+        </member>
+        <member name="M:Messaging.IDeserializableMessage.OnEndDeserialize(System.Boolean)">
+            <summary>
+            Called when message serialization has ended.
+            Parameter messageComplete is set to true upon completion, and set to false if the
+            message 'end' delimiter was not encountered.
+            </summary>
+            <param name="messageComplete"></param>
+        </member>
+        <member name="T:Messaging.IDeserializableMessageFactory">
+            <summary>
+            Defines a factory for deserializable messages.
+            For use by the MessageListener.
+            </summary>
+        </member>
+        <member name="M:Messaging.IDeserializableMessageFactory.GetMessageDeserializer(System.String)">
+            <summary>
+            Returns a message instance, given a message type string.
+            Returns NULL if message type is not recognised.
+            </summary>
+            <param name="messageType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Messaging.MessageListenerErrorEventArgs">
+            <summary>
+            Event arguments containing Exception thrown by MessageListener when an IO error is encountered.
+            </summary>
+        </member>
+        <member name="P:Messaging.MessageListenerErrorEventArgs.Exception">
+            <summary>
+            Gets the Exception thrown by the MessageListener.
+            </summary>
+        </member>
+        <member name="T:Messaging.MessageListener">
+            <summary>
+            Listens for incomming messages on a stream and deserializes to correct type.
+            </summary>
+        </member>
+        <member name="E:Messaging.MessageListener.IOErrorOccurred">
+            <summary>
+            Event is triggered when an IO exception occurs. The event handler will likely be
+            executed on a background thread.
+            </summary>
+        </member>
+        <member name="M:Messaging.MessageListener.#ctor(System.IO.Stream,Messaging.IDeserializableMessageFactory)">
+            <summary>
+            Creates instance with stream and a deserializable message factory.
+            </summary>
+            <param name="stream"></param>
+            <param name="messageDeserializerFactory"></param>
+        </member>
+        <member name="M:Messaging.MessageListener.#ctor(System.IO.Stream,Messaging.IDeserializableMessageFactory,System.Char,System.Char,System.Char)">
+            <summary>
+            Creates instance with stream, a deserializable message factory and message delimiter characters.
+            </summary>
+            <param name="stream"></param>
+            <param name="messageDeserializerFactory"></param>
+            <param name="msg_start"></param>
+            <param name="msg_end"></param>
+            <param name="msg_property"></param>
+        </member>
+        <member name="M:Messaging.MessageListener.ProcessMessageStream">
+            <summary>
+            Processes the message stream, listening for incomming messages, then deserializes them.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Messaging.MessageListener.Cancel">
+            <summary>
+            Cancels the processing of the message stream.
+            </summary>
+        </member>
+        <member name="M:Messaging.MessageListener.IsDeserializingMessage">
+            <summary>
+            Returns true if currently deserializing a message.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Messaging.MessageListener.DeserializeProperty(Messaging.IDeserializableMessage,System.String)">
+            <summary>
+            Deserializes the property of an incomming message.
+            </summary>
+            <param name="msg"></param>
+            <param name="propertyEncValue"></param>
+        </member>
+        <member name="M:Messaging.MessageListener.EndDeserialize(Messaging.IDeserializableMessage,System.Boolean)">
+            <summary>
+            Called when incomming message deserialization is complete or a new incomming message is detected.
+            Parameter messageComplete is set to true upon completion, and set to false if the
+            message 'end' delimiter was not encountered.
+            </summary>
+            <param name="msg"></param>
+            <param name="messageComplete"></param>
+        </member>
+        <member name="M:Messaging.MessageSender.Cancel">
+            <summary>
+            Cancels the processing of the message queue.
+            </summary>
+        </member>
+        <member name="T:Messaging.SerializableMessage">
+            <summary>
+            An abstract class that supports serialization of simple properties
+            for the purpose of communication over Serial.
+            </summary>
+        </member>
+        <member name="M:Messaging.SerializableMessage.GetMessageType">
+            <summary>
+            Returns the message type string. Must be unique for each implementation.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Messaging.SerializableMessage.Serialize">
+            <summary>
+            Serializes object to the stream. This method is thread safe.
+            </summary>
+        </member>
+        <member name="M:Messaging.SerializableMessage.IsSerializing">
+            <summary>
+            Returns true of the object is currently serializing.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Messaging.SerializableMessage.Cancel">
+            <summary>
+            Signals cancellation of serialization. Subclass implementation
+            must decide how to cancel serialization.
+            </summary>
+        </member>
+        <member name="M:Messaging.SerializableMessage.IsCancelled">
+            <summary>
+            Returns true if the cancel method has been invoked.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Messaging.SerializableMessage.OnBeginSerialize">
+            <summary>
+            Called when serialization has begun.
+            </summary>
+        </member>
+        <member name="M:Messaging.SerializableMessage.OnSerialize">
+            <summary>
+            An abstract method that serializes the object.
+            </summary>
+        </member>
+        <member name="M:Messaging.SerializableMessage.SerializeProperty(System.String)">
+            <summary>
+            Serializes a property to the stream. Set the propertyValue
+            to an empty string and use the underlying stream if more
+            formatting control of the property value is required.
+            </summary>
+            <param name="propertyValue"></param>
+        </member>
+    </members>
+</doc>
