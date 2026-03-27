@@ -10,13 +10,6 @@
 #
 # Robo-Tx API online help: https://help.cohesivecomputing.co.uk/Robo-Tx
 # (C) Kashif Baig
-# 
-# Robo-Tx firmware must be deployed to the Arduino. Before doing so, make sure
-# SELECTED_PROFILE is set to PROFILE_ALL_IN_ONE_KIT_ARDU in file Settings.h
-#
-# https://github.com/kashif-baig/RoboTx_Firmware
-#
-# Robo-Tx API online help: https://help.cohesivecomputing.co.uk/Robo-Tx
 #
 # Check settings in file app_config.py before running the code.
 # All examples are provided as is and at user's own risk.
