@@ -10,7 +10,7 @@ The projects are designed for **beginners and students**, with structured exampl
 
 ## 🚀 Overview
 
-The Elecrow All-in-One Starter Kit includes a variety of sensors and actuators (LEDs, buzzers, buttons, displays, etc.). Traditionally, these are normally programmed directly on the Arduino using embedded C/C++.
+The Elecrow All-in-One Starter Kit includes a variety of sensors and actuators (LEDs, buzzers, buttons, displays, etc.). Traditionally, these are programmed directly on the Arduino using embedded C/C++.
 
 This repository introduces a different approach:
 
@@ -223,12 +223,12 @@ By using both, students:
 
 ## 🧪 Quick Review to Getting Started
 
-1. Upload Robo-Tx firmware to your Arduino
-2. Install .net, Python and VS Code on your computer
-3. Connect your Elecrow kit to your computer
+1. Connect your Elecrow kit to your computer
+2. Upload Robo-Tx firmware to the kit's Arduino
+3. Install .net, Python and VS Code on your computer
 4. Open this repository in VS Code
-5. Use VS Code to create a local Python environment.
-6. Install Pythonnet in the newly created environment.
+5. Use VS Code to create a local Python environment
+6. Install Pythonnet in the newly created environment
 7. Run Python or C# examples
 8. Complete the coding challenges
 
