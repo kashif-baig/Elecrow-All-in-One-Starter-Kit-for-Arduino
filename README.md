@@ -69,7 +69,7 @@ Pythonnet allows Python to interact with the Robo-Tx .NET-based API.
 
 It is strongly recommended to use:
 
-* [Visual Studio Code](https://pypi.org/project/pythonnet/)
+* [Visual Studio Code](https://code.visualstudio.com/download)
 
 ### Why Visual Studio Code?
 
