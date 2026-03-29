@@ -61,7 +61,7 @@ To run Python examples:
 pip install pythonnet
 ```
 
-Pythonnet allows Python to interact with the Robo-Tx .NET-based API.
+Open the repo using VS Code (see next step) and create a Python environment, within which pythonnet can be installed. Pythonnet allows Python to interact with the Robo-Tx .NET-based API.
 
 ---
 
@@ -224,7 +224,7 @@ By using both, students:
 ## 🧪 Quick Review to Getting Started
 
 1. Connect your Elecrow kit to your computer
-2. Upload Robo-Tx firmware to the kit's Arduino
+2. Upload Robo-Tx firmware to the kit using Arduino IDE
 3. Install .net, Python and VS Code on your computer
 4. Open this repository in VS Code
 5. Use VS Code to create a local Python environment
