@@ -49,7 +49,7 @@ This is required for running the Python and C# examples via the Robo-Tx API.
 
 To run Python examples:
 
-* Install **Python (≤ 3.13)**
+* Install **Python (≤ 3.13)** (note version number)
 
   * [Python](https://www.python.org/downloads/)
 
@@ -61,7 +61,7 @@ To run Python examples:
 pip install pythonnet
 ```
 
-Open the repo using VS Code (see next step) and create a Python environment, within which pythonnet can be installed. Pythonnet allows Python to interact with the Robo-Tx .NET-based API.
+Pythonnet allows Python to interact with the Robo-Tx .NET-based API. After installing VS Code (see next step) open the repo using VS Code, open one of the Python code examples, create a Python environment, then use the VS Code terminal window to install Pythonnet.
 
 ---
 
