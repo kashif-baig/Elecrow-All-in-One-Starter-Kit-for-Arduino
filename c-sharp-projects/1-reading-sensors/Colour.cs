@@ -24,12 +24,13 @@ namespace c_sharp_projects._1_reading_sensors
         // Adapt as necessary for your sensor/lighting environment.
         static (string name, float h_min, float h_max, float s_min, float s_max, float l_min, float l_max)[]
             rubiks_colours =
-            [   ("white",   147,153, 17,20, 32,33),
-                ("red",     2,17,    10,28, 31,37),
-                ("orange",  29,59,   15,43, 29,33),
-                ("yellow",  78,98,   23,40, 30,33),
-                ("green",   121,154, 24,45, 32,36),
-                ("blue",    188,204, 36,56, 29,32),
+            [
+                ("white",   150, 155, 17, 21, 32, 33),
+                ("red",       1,   7, 21, 30, 34, 37),
+                ("orange",   53,  56, 35, 46, 27, 31),
+                ("yellow",   77,  81, 37, 45, 30, 33),
+                ("green",   135, 142, 24, 45, 32, 36),
+                ("blue",    197, 206, 27, 59, 30, 32),
             ];
 
         static void Main(string[] args)
