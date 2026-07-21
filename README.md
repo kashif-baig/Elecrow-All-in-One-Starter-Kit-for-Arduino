@@ -18,6 +18,8 @@ This repository introduces a different approach:
 * Control hardware using **Python or C# from your computer**
 * Focus on **logic, problem-solving, and software development skills**
 
+For students who don't have the All-in-One Starter Kit but want to learn how to program it using Python, consider enrolling on the [**Python Programming: Robotics Foundation Course**](https://www.cohesivecomputing.co.uk/python-programming-robotics-foundation-course/).
+
 ---
 
 ## 🔧 Prerequisites
