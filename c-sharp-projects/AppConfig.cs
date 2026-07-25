@@ -16,7 +16,7 @@
         {
             get
             {
-                return "COM4";
+                return "COM8";
             }
         }
     }

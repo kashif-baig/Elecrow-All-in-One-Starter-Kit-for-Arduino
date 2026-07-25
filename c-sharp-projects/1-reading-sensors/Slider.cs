@@ -26,16 +26,28 @@ namespace c_sharp_projects._1_reading_sensors
                 Console.WriteLine("Press Esc to stop the program.");
 
                 var slider = all_in_one_kit.Analog.A0;
+                
+                // Optional step to register a function to convert raw slider values (0 to 1023)
+                // to percent range (0 to 100).
+                all_in_one_kit.Analog.UseConverter(ConvertToPercent, slider);
 
                 while (all_in_one_kit.ConnectionState.IsConnected)
                 {
-                    Console.WriteLine($"Slider value: {slider.Value}");
+                    Console.WriteLine($"Slider value: {slider.Value:0.0}");
                     if (Console.KeyAvailable)
                         if (Console.ReadKey(true).Key == ConsoleKey.Escape) break;
 
                     Thread.Sleep(50);
                 }
             }
+        }
+
+        /// <summary>
+        /// Function to convert raw analog value (0 to 1023) to percent range (0 to 100).
+        /// </summary>
+        static float ConvertToPercent(float analogValue)
+        {
+            return (analogValue * 100)/1023;
         }
     }
 }

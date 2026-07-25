@@ -14,5 +14,5 @@ from RoboTx import *
 
 # If connecting to an Arduino using USB, use Device Manager (Windows OS) to identify the COM port.
 # For Linux, try the default port "/dev/ttyACM0".
-serial_port = "COM4"
+serial_port = "COM8"
 
