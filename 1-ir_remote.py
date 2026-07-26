@@ -17,7 +17,7 @@ import time
 from app_config import *
 
 def convert_cmd_code(ir_code: int) -> str:
-    """Convert IR code to button name or return raw code if unmapped."""
+    """Convert IR code to button name or return 'unmapped'."""
     # Map required codes to button names.
     match ir_code:
         case 7:
@@ -31,8 +31,8 @@ def convert_cmd_code(ir_code: int) -> str:
         case 64:
             return "Fwd"
         case _:
-            # Otherwise, return raw code.
-            return f"{ir_code} unmapped"
+            # Otherwise, return 'unmapped'.
+            return "unmapped"
 
 all_in_one_kit = RobotIO(serial_port)
 try:
@@ -53,7 +53,7 @@ try:
 
         if ir_cmd.Code >= 0:
             state = "pressed" if ir_cmd.ButtonPressed else "released"
-            print(f"IR Cmd: {ir_cmd.Name} {state}")
+            print(f"IR Cmd: {ir_cmd.Code} → '{ir_cmd.Name}' was {state}")
 
         time.sleep(0.05)
 finally:

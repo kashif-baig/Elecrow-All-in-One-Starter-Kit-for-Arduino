@@ -38,7 +38,7 @@ namespace c_sharp_projects._1_reading_sensors
                     {
                         // Print button name pressed.
                         string state = ir_cmd.ButtonPressed ? "pressed" : "released";
-                        Console.WriteLine($"IR Cmd: {ir_cmd.Name} {state}");
+                        Console.WriteLine($"IR Cmd: {ir_cmd.Code} '{ir_cmd.Name}' was {state}");
                     }
                     if (Console.KeyAvailable)
                         if (Console.ReadKey(true).Key == ConsoleKey.Escape) break;
@@ -62,8 +62,8 @@ namespace c_sharp_projects._1_reading_sensors
                 case 68: return "Rew";
                 case 64: return "Fwd";
             }
-            // Otherwise, return raw code.
-            return $"{irCode} unmapped";
+            // Otherwise, return 'unmapped'.
+            return "unmapped";
         }
     }
 }
