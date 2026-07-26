@@ -25,6 +25,10 @@ namespace c_sharp_projects._1_reading_sensors
                 all_in_one_kit.Connect();
                 Console.WriteLine("Press Esc to stop the program.");
 
+                // Optional step to register function for mapping IR command code
+                // to button name.
+                all_in_one_kit.Digital.UseIrCommandConverter(ConvertCmdCode);
+
                 while (all_in_one_kit.ConnectionState.IsConnected)
                 {
                     // Report any infra-red command codes received.
@@ -32,8 +36,9 @@ namespace c_sharp_projects._1_reading_sensors
 
                     if (ir_cmd.Code >= 0)
                     {
+                        // Print button name pressed.
                         string state = ir_cmd.ButtonPressed ? "pressed" : "released";
-                        Console.WriteLine($"IR Cmd: {ir_cmd.Code} {ir_cmd.Name} {state}");
+                        Console.WriteLine($"IR Cmd: {ir_cmd.Name} {state}");
                     }
                     if (Console.KeyAvailable)
                         if (Console.ReadKey(true).Key == ConsoleKey.Escape) break;
@@ -41,6 +46,24 @@ namespace c_sharp_projects._1_reading_sensors
                     Thread.Sleep(50);
                 }
             }
+        }
+
+        /// <summary>
+        /// Function to map IR command code to a button name.
+        /// </summary>
+        static string ConvertCmdCode(int irCode)
+        {
+            // Map required codes to button names.
+            switch (irCode)
+            {
+                case 7: return "-";
+                case 21: return "+";
+                case 9: return "EQ";
+                case 68: return "Rew";
+                case 64: return "Fwd";
+            }
+            // Otherwise, return raw code.
+            return $"{irCode} unmapped";
         }
     }
 }
