@@ -40,29 +40,29 @@ namespace c_sharp_projects._3_applications
 
                 while (all_in_one_kit.ConnectionState.IsConnected)
                 {
-                    // Emit ping from sonar module.
-                    sonar.Ping();
-                    // Proceed only if a distance measurement is available
-                    if (sonar.DistanceAcquired)
+                    if (!sonar.DistanceAcquired)
+                    {
+                        // Emit ping from sonar module.
+                        sonar.Ping();
+                    }
+                    else // Proceed only if a distance measurement is available
                     {
                         // Get distance reported in centimeters.
                         var distance_cm = sonar.GetDistance();
 
-                        // Consider only valid, non‑zero distances less than 250 cm
-                        if (distance_cm != 0 && distance_cm < 250)
-                        {
-                            // Calculate beep interval (in milliseconds) to correspond to distance.
-                            var beep_interval = (distance_cm * 10) - 30;
+                        // Calculate beep interval (in milliseconds) to correspond to distance.
+                        var beep_interval = distance_cm * 10;
 
-                            if (beep_interval < 0)
-                            {
-                                beep_interval = 0;
-                            }
-                            // Set beeper interval.
-                            beeper.SetOffPeriod(beep_interval);
+                        // If measured distance is less than 3 cm, set beep interval to 0 to emit continuous sound.
+                        if (distance_cm < 3)
+                        {
+                            beep_interval = 0;
                         }
+                        // Set beeper interval.
+                        beeper.SetOffPeriod(beep_interval);
+
                         // Show the distance on the display, padded to three digits.
-                        all_in_one_kit.Display.PrintAt(0, 0, $"{distance_cm:000} cm");
+                        all_in_one_kit.Display.PrintAt(10, 0, $"{distance_cm:000} cm");
                     }
 
                     if (Console.KeyAvailable)
