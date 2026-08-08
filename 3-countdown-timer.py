@@ -24,12 +24,12 @@ import time
 from datetime import datetime,timedelta
 from app_config import *
 
-# Convert raw analog value to duration
 def convert_to_duration(value):
-    return ((600 * value) / 1023)
+    '''Convert raw analog value to duration as seconds, in tens of seconds.'''
+    return int((360 * value) / 1023) * 10
 
-# Helper method to format time for display.
 def to_time_format(seconds):
+    '''Convert seconds to MM:SS format for display.'''
     return f"{seconds // 60:02}:{str(seconds % 60).zfill(2)}"
 
 all_in_one_kit = RobotIO(serial_port)

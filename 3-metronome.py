@@ -1,5 +1,5 @@
 # A metronome application that uses the slider (linear potentiometer) to control the
-# tempo, and the holding of the button to cycle through time signatures 2/4 to 4/4.
+# tempo, and the holding then releasing the button to cycle through time signatures 2/4 to 4/4.
 # Press the button to stop/start the metronome.
 # 
 # Coding challenge:
@@ -73,7 +73,7 @@ try:
                 milliseconds=beat_interval
             )
 
-        elif input_event == Input.BUTTON_1_SUSTAINED:
+        elif input_event == Input.BUTTON_1_SUSTAIN_RELEASED:
             # Cycle through time signatures while the button is held.
             signature += 1
             if signature > 4:

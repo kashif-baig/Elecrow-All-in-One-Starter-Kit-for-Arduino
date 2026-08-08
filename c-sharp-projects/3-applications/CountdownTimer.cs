@@ -106,13 +106,13 @@ namespace c_sharp_projects._3_applications
         }
 
         /// <summary>
-        /// Function to convert slider value to timer duration.
+        /// Function to convert slider value to timer duration as seconds, in tens of seconds.
         /// </summary>
         /// <param name="analogValue"></param>
         /// <returns></returns>
         static float ConvertToDuration(float analogValue)
         {
-            return ((int)((600 * analogValue) / 1023));
+            return ((int)((360 * analogValue) / 1023)) * 10;
         }
 
         /// <summary>
