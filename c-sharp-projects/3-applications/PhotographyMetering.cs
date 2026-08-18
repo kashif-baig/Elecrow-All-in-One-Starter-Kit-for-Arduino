@@ -49,6 +49,7 @@ namespace c_sharp_projects._3_applications
 
                 var iso = 100;
                 display.PrintAt(6, 0, $"{iso}");
+                display.PrintAt(0, 1, " A     S      T");
 
                 while (all_in_one_kit.ConnectionState.IsConnected)
                 {

@@ -34,9 +34,8 @@ SHUTTER_SPEEDS = [
     100, 125, 160, 200, 250, 320, 400, 500, 640, 800, 1400
 ]
 
-# Convert an analog sensor reading (0‑1023) to the nearest shutter speed
-# from the predefined SHUTTER_SPEEDS list.
 def map_to_shutter_speed(analog_value: float) -> float:
+    '''Maps analog reading of sliding potentiometer to the nearest shutter speed.'''
     max_index = len(SHUTTER_SPEEDS) - 1
     index = int((max_index * analog_value) / 1023)
 
@@ -62,6 +61,7 @@ try:
 
     iso = 100
     display.PrintAt(6, 0, f"{iso}")
+    display.PrintAt(0, 1, " A     S      T")
                                 
     # Thread to detect Enter key
     detectEnterKey = threading.Thread(target = input)
