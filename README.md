@@ -2,7 +2,7 @@
 
 This repository contains **Python** and **C# coding examples** for the Elecrow All-in-One Starter Kit for Arduino. These examples demonstrate how to control hardware components using the **Robo-Tx API**, which provides a bridge between the desktop computer and the Arduino microcontroller in the all-in-one kit.
 
-![Elecrow All-in-One Starter Kit for Arduino](images/all_in_one_starter_kit_for_arduino_resized.jpg)
+![Elecrow All-in-One Starter Kit for Arduino](images/python-c-sharp-coding-using-elecrow-aio-kit-resized.jpg)
 
 The projects are designed for **beginners and students**, with structured examples and **coding challenges** that reinforce learning and build confidence.
 
@@ -24,125 +24,91 @@ For students who don't have the All-in-One Starter Kit but want to learn how to 
 
 ## 🔧 Prerequisites
 
-Before running any examples, ensure the following are set up correctly.
+Before running any examples, ensure your Elecrow All-in-One starter kit and computer are properly configured. It is only necessary to install software if not already installed.
 
 ### 1. Install Robo-Tx Firmware on the All-in-One Starter Kit for Arduino
 
-You must first deploy the firmware from:
+You must first deploy the firmware:
 
-* [RoboTx_Firmware](https://github.com/kashif-baig/RoboTx_Firmware)
-* Install and use [Arduino IDE](https://www.arduino.cc/en/software) on your computer to perform deployment
+* Install [**Arduino IDE**](https://www.arduino.cc/en/software) on your computer;
+* Download and unzip [**RoboTx_Firmware**](https://github.com/kashif-baig/RoboTx_Firmware);
+* Locate the .ino file in the unzipped folder and open it using the Arduino IDE;
+* Make sure the All-in-One kit is connected to the computer's USB port;
+* In the Arduino IDE, select the *Arduino Uno* as the board, making sure that it shows as connected to the correct USB port;
+* Upload the firmware using the Arduino IDE.
 
 This firmware enables communication between the user's computer and the Arduino.
 
----
-
-### 2. Install .NET Runtime
-
-* Install **.NET 8.0 or later** from:
-
-  * [.NET](https://dotnet.microsoft.com/en-us/download)
-
-This is required for running the Python and C# examples via the Robo-Tx API.
 
 ---
 
-### 3. Python Setup
+### 2. Install .NET SDK
+
+* Install [**.NET 8.0 or later**](https://dotnet.microsoft.com/en-us/download) on to your computer.
+
+This is required for running both C# and Python programs with the API that communicates with the Robo-Tx firmware.
+
+
+---
+
+### 3. Install Powershell
+
+* Install [**Powershell**](https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows?view=powershell-7.6) if not already installed on your computer.
+
+This is needed for running scripts to configure your Python environment.
+
+---
+
+### 4. Python Setup
 
 To run Python examples:
 
-* Install **Python (≤ 3.13)** (note version number)
+* Install [**Python (≤ 3.14)**](https://www.python.org/downloads/) on to your computer.
 
-  * [Python](https://www.python.org/downloads/)
-
-* Install Pythonnet in the selected Python environment:
-
-  * [pythonnet](https://pypi.org/project/pythonnet/)
-
-```
-pip install pythonnet
-```
-
-Pythonnet allows Python to interact with the Robo-Tx .NET-based API. After installing VS Code (see next step) open the repo using VS Code, open one of the Python code examples, create a Python environment, then use the VS Code terminal window to install Pythonnet.
+Please note the version number of your Python installation.
 
 ---
 
-## 💻 Recommended Development Environment
+### 5. Install Visual Studio Code (VS Code)
 
-It is strongly recommended to use:
+It is strongly recommended to install and use VS Code as your development environment:
 
-* [Visual Studio Code](https://code.visualstudio.com/download)
+* Install [**Visual Studio Code**](https://code.visualstudio.com/download);
+* Install [**Python**](https://marketplace.visualstudio.com/items?itemName=ms-python.python) and [**Pylance**](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance) extensions, if running the Python examples; or
+* Install [**C# Dev Kit**](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit) extensions, if running the C# examples.
 
-### Why Visual Studio Code?
+#### Why Visual Studio Code?
 
-Visual Studio Code (VS Code) is ideal because:
+Visual Studio Code is ideal because:
 
 * Lightweight and fast
-* Supports both **Python and C# in one environment**
-* Excellent debugging tools
+* Excellent support for Python
 * Integrated terminal
 * Rich extension ecosystem
 
 ---
 
-### 🔌 Required VS Code Extensions
+### 6. Before Running the Python Code
 
-Install the following extensions:
+After the computing environment and Elecrow All-in-One Starter kit have been configured, download this repo and create a Python virtual environment for it using the steps below.
 
-#### For Python
+* Download the ZIP for this repo and extract to a folder on your computer;
+* In the extracted folder, locate the Powershell script *create-venv.ps1* and open using Visual Studio Code. This script will create a Python virtual environment and install the package [Pythonnet]((https://pypi.org/project/pythonnet/));
+* Run the script of the previous step by clicking the Run icon, usually at the top right of the VS Code window. If it fails, delete .venv folder (if created), and try running the script again.
 
-* Python Extension for VS Code
-* Pylance
+Once all the steps have been successfully completed, the computing environment will be ready for developing and running Python programs against the Elecrow All-in-One Starter kit.
 
-#### For C#
+To run a particular Python example from the repo:
 
-* C# Dev Kit
-
----
-
-## 📚 What Students Will Learn
-
-The examples in this repository cover:
-
-### Core Programming Concepts
-
-* Variables and data types
-* String formatting
-* Conditional logic (if/else)
-* Loops and iteration
-* Working with timing and delays
-* Functions and modular design
-* Writing to files
-
-### Hardware Interaction
-
-* Reading and processing audio, optical, mechanical and environmental sensor inputs
-* Controlling actuators (LED, buzzer, servo motor, display etc)
-
-### Software Development Skills
-
-* Debugging techniques
-* Structuring code
-* Interfacing between systems (PC ↔ Arduino)
+* Open the extracted folder using Visual Studio Code;
+* Set the variable *serial_port* in file *app_config.py* to the serial port the All-in-One kit is connected to;
+* Select the Python file of interest and click the Run icon.
 
 ---
 
-## 🧠 Coding Challenges
+## 🎓 Aligns With Computer Science Taught in High School or College
 
-The application examples (section 3) includes **hands-on challenges**, encouraging the learner to:
-
-* Modify existing programs
-* Think algorthmically
-* Combine multiple ideas
-* Ultimately build their own solutions
-
-These challenges are essential for reinforcing learning and developing problem-solving skills.
-
----
-
-## 🎓 GCSE Computer Science Alignment
-
-The coding examples and challenges align closely with the **GCSE Computer Science curriculum**, including:
+The coding examples and challenges align closely with the **Computer Science curriculums**, including:
 
 ### 1. Algorithms & Problem Solving
 
@@ -169,28 +135,20 @@ The coding examples and challenges align closely with the **GCSE Computer Scienc
 
 ---
 
-## 📈 How This Repository Boosts Student Confidence
+## 🧠 Coding Challenges
 
-Working through these examples helps students:
+The application examples (section 3) includes **hands-on challenges**, encouraging the learner to:
 
-* **Bridge theory and practice**
-  → See how abstract concepts control real-world devices
+* Modify existing programs
+* Think algorthmically
+* Combine multiple ideas
+* Ultimately build their own solutions
 
-* **Gain immediate feedback**
-  → Hardware responses (LEDs, buzzers) reinforce understanding
-
-* **Develop independence**
-  → Coding challenges encourage experimentation and exploration
-
-* **Learn multiple languages**
-  → Compare Python vs C# approaches to the same problem
-
-* **Build transferable skills**
-  → Skills apply directly to exams and future software projects
+These challenges are essential for reinforcing learning and developing problem-solving skills.
 
 ---
 
-## 🤖 Beyond the all-in-one starter kit: Robotics Applications
+## 🤖 Beyond the All-in-One starter kit: Robotics Applications
 
 The Robo-Tx ecosystem is not limited the all-in-one starter kit for Arduino.
 
@@ -225,25 +183,14 @@ By using both, students:
 
 ## 🧪 Quick Review to Getting Started
 
-1. Connect your Elecrow kit to your computer
-2. Upload Robo-Tx firmware to the kit using Arduino IDE
-3. Install .net, Python and VS Code on your computer
-4. Open this repository in VS Code
-5. Use VS Code to create a local Python environment
-6. Install Pythonnet in the newly created environment
-7. Run Python or C# examples
-8. Complete the coding challenges
-
----
-
-## 📌 Summary
-
-This repository is more than just example code—it is a **learning pathway** that:
-
-* Aligns with GCSE Computer Science
-* Builds real-world programming skills
-* Introduces hardware and robotics concepts
-* Develops confidence through hands-on experimentation
+1. Connect your Elecrow kit to your computer;
+2. Upload Robo-Tx firmware to the kit using Arduino IDE;
+3. Install .net, Python and VS Code on your computer;
+4. Download and open this repository in VS Code;
+5. Use VS Code to create a local Python environment;
+6. Modify the app_config.py or AppConfig.cs to use serial port the All-in-One kit is connected to;
+7. Run the Python or C# examples; and
+8. Complete the coding challenges.
 
 ---
 
