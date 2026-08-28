@@ -611,7 +611,7 @@
         </member>
         <member name="P:RoboTx.Api.HSLColour.Lightness">
             <summary>
-            Saturation component.
+            Lightness component.
             </summary>
         </member>
         <member name="M:RoboTx.Api.HSLColour.Deconstruct(System.Single@,System.Single@,System.Single@)">
