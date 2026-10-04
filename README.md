@@ -1,10 +1,10 @@
 # Elecrow All-in-One Starter Kit for Arduino Coding Examples
 
-This repository contains **Python** and **C# coding examples** for the Elecrow All-in-One Starter Kit for Arduino. These examples demonstrate how to control hardware components using the **Robo-Tx API**, which provides a bridge between the desktop computer and the Arduino microcontroller in the all-in-one kit.
+This repository contains **Python** and **C# coding examples** for the Elecrow All-in-One Starter Kit for Arduino. These examples demonstrate how to control hardware components using the robotics-oriented learning platform, **Robo-Tx**, which provides a bridge between the desktop computer and the Arduino microcontroller in the all-in-one kit.
 
 ![Elecrow All-in-One Starter Kit for Arduino](images/python-c-sharp-coding-using-elecrow-aio-kit-resized.jpg)
 
-The projects are designed for **beginners and students**, with structured examples and **coding challenges** that reinforce learning and build confidence.
+The projects are designed for **beginners and students**, with structured examples and **coding challenges** that reinforce learning and build confidence. The source code and API files are free for personal use.
 
 ---
 
@@ -150,9 +150,9 @@ These challenges are essential for reinforcing learning and developing problem-s
 
 ## 🤖 Beyond the All-in-One starter kit: Robotics Applications
 
-The Robo-Tx ecosystem is not limited the all-in-one starter kit for Arduino.
+The Robo-Tx platform is not limited to the All-in-One Starter Kit for Arduino.
 
-It can also be used to learn **robotics programming**, including:
+Its main focus is for learning **robotics programming**, including:
 
 * Off-the-shelf robotics kits
 * LEGO Technic-based systems
