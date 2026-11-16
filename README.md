@@ -32,7 +32,8 @@ You must first deploy the firmware:
 
 * Install [**Arduino IDE**](https://www.arduino.cc/en/software) on your computer;
 * Download and unzip [**RoboTx_Firmware**](https://github.com/kashif-baig/RoboTx_Firmware);
-* Locate the .ino file in the unzipped folder and open it using the Arduino IDE;
+* Locate the RoboTx_Firmware.ino file in the unzipped folder and open it using the Arduino IDE;
+* Be sure to review library dependencies listed in the file RoboTx_Firmware.ino and configuration in Settings.h before uploading to an Arduino board;
 * Make sure the All-in-One kit is connected to the computer's USB port;
 * In the Arduino IDE, select the *Arduino Uno* as the board, making sure that it shows as connected to the correct USB port;
 * Upload the firmware using the Arduino IDE.
@@ -92,9 +93,9 @@ Visual Studio Code is ideal because:
 
 After the computing environment and Elecrow All-in-One Starter kit have been configured, download this repo and create a Python virtual environment for it using the steps below.
 
-* Download the ZIP for this repo and extract to a folder on your computer;
+* Download the ZIP for this repo and extract to a folder on your computer, where no part of the folder path has spaces in it;
 * In the extracted folder, locate the Powershell script *create-venv.ps1* and open using Visual Studio Code. This script will create a Python virtual environment and install the package [Pythonnet]((https://pypi.org/project/pythonnet/));
-* Run the script of the previous step by clicking the Run icon, usually at the top right of the VS Code window. If it fails, delete .venv folder (if created), and try running the script again.
+* Run the script of the previous step by clicking the Run icon, usually at the top right of the VS Code window. If it fails, delete .venv folder (if created), and try running the script again. Alternatively, create a virtual environment manually (in the extracted folder) and manually install Pythonnet using pip.
 
 Once all the steps have been successfully completed, the computing environment will be ready for developing and running Python programs against the Elecrow All-in-One Starter kit.
 
